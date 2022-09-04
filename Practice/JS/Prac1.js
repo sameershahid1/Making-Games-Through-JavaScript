@@ -54,7 +54,7 @@ class Particle
     {
         this.x+=this.speedX;
         this.y+=this.speedY;
-        if(this.size>0.9)this.size-=0.1;
+        if(this.size>0.2)this.size-=0.1;
     }
 
     draw()
@@ -83,10 +83,11 @@ function HandleParticles()
             {
                 ctx.beginPath();
                 ctx.strokeStyle=particles[i].color;
-                ctx.lineWidth=particles[i].size/10;
+                ctx.lineWidth=0.2;
                 ctx.moveTo(particles[i].x,particles[i].y);
                 ctx.lineTo(particles[j].x,particles[j].y);
                 ctx.stroke();
+                ctx.closePath();
             }
         }
 
